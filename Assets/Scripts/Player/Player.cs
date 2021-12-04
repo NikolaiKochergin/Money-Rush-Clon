@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [Header("Player Stats")]
-    [SerializeField] private int _startCash;
+    [SerializeField][Min(1)] private int _startCash;
     [Space]
     [Header("Player Components")]
     [SerializeField] private Mover _mover;

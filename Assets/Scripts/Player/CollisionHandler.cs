@@ -12,6 +12,25 @@ public class CollisionHandler : MonoBehaviour
         if (modifier)
         {
             modifier.gameObject.SetActive(false);
+
+            switch (modifier.Type)
+            {
+                case Modifier.OperationType.Add:
+                    _player.ChangeCashTo(_player.Cash + modifier.Value);
+                    break;
+
+                case Modifier.OperationType.Subtract:
+                    _player.ChangeCashTo(_player.Cash - modifier.Value);
+                    break;
+
+                case Modifier.OperationType.Multiply:
+                    _player.ChangeCashTo(_player.Cash * modifier.Value);
+                    break;
+
+                case Modifier.OperationType.Divide:
+                    _player.ChangeCashTo(_player.Cash / modifier.Value);
+                    break;
+            }
         }
     }
 

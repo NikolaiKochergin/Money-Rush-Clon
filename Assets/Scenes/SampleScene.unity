@@ -890,7 +890,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1849799972}
-  _speed: 5
+  _speed: 10
+  _roadWidth: 4
+  _sensetivity: 0.008
 --- !u!114 &1849799975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,6 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4661c2a40be6fa54585429817da1c3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startCash: 100
   _mover: {fileID: 1849799974}
   _collisionHandler: {fileID: 1849799976}
 --- !u!114 &1849799976
