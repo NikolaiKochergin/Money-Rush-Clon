@@ -1,41 +1,32 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
 public class CollisionHandler : MonoBehaviour
 {
     private Player _player;
 
+    private void Awake()
+    {
+        _player = GetComponent<Player>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         var modifier = other.GetComponentInParent<Modifier>();
+        var bonus = other.GetComponentInParent<Bonus>();
 
         if (modifier)
         {
             modifier.gameObject.SetActive(false);
 
-            switch (modifier.Type)
-            {
-                case Modifier.OperationType.Add:
-                    _player.ChangeCashTo(_player.Cash + modifier.Value);
-                    break;
-
-                case Modifier.OperationType.Subtract:
-                    _player.ChangeCashTo(_player.Cash - modifier.Value);
-                    break;
-
-                case Modifier.OperationType.Multiply:
-                    _player.ChangeCashTo(_player.Cash * modifier.Value);
-                    break;
-
-                case Modifier.OperationType.Divide:
-                    _player.ChangeCashTo(_player.Cash / modifier.Value);
-                    break;
-            }
+            _player.ChangeCash(modifier.Type, modifier.Value);
         }
-    }
 
-    public void Initialization(Player player)
-    {
-        _player = player;
+        if (bonus)
+        {
+            bonus.gameObject.SetActive(false);
+
+            _player.ChangeCash(Modifier.OperationType.Add, bonus.Value);
+        }
     }
 }

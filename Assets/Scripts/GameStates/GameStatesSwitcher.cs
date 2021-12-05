@@ -11,9 +11,12 @@ public class GameStatesSwitcher : MonoBehaviour
     private Dictionary<Type, IGameState> _statesMap;
     private IGameState _currentState;
 
+    public PlayerInput PlayerInput => _input;
+
     private void Awake()
     {
         _input = new PlayerInput();
+        _player.Mover.Initialization(_input);
 
         InitStates();
         SetStateByDefault();
@@ -21,25 +24,24 @@ public class GameStatesSwitcher : MonoBehaviour
 
     private void OnEnable()
     {
-        _input.UI.StartGame.performed += ctx => SetPlayState();
+        _player.GameLoss += SetGameLossState;
+        _player.GameFinished += SetFinishedState;
     }
 
     private void OnDisable()
     {
-        _input.UI.StartGame.performed -= ctx => SetPlayState();
+        _player.GameLoss -= SetGameLossState;
+        _player.GameFinished -= SetFinishedState;
     }
 
     public void SetStartState()
     {
-        _input.Player.Disable();
         var state = GetState<StartState>();
         SetState(state);
     }
 
     public void SetPlayState()
     {
-        _input.UI.Disable();
-        _input.Player.Enable();
         var state = GetState<PlayState>();
         SetState(state);
     }
@@ -52,7 +54,6 @@ public class GameStatesSwitcher : MonoBehaviour
 
     public void SetGameLossState()
     {
-        _input.Player.Disable();
         var state = GetState<GameLossState>();
         SetState(state);
     }
@@ -61,10 +62,10 @@ public class GameStatesSwitcher : MonoBehaviour
     {
         _statesMap = new Dictionary<Type, IGameState>();
 
-        _statesMap[typeof(StartState)] = new StartState();
-        _statesMap[typeof(PlayState)] = new PlayState();
-        _statesMap[typeof(FinishedState)] = new FinishedState();
-        _statesMap[typeof(GameLossState)] = new GameLossState();
+        _statesMap[typeof(StartState)] = new StartState(_player, _uI, this);
+        _statesMap[typeof(PlayState)] = new PlayState(_player, _uI, this);
+        _statesMap[typeof(FinishedState)] = new FinishedState(_uI, this);
+        _statesMap[typeof(GameLossState)] = new GameLossState(_uI, this);
     }
 
     private void SetState(IGameState newState)

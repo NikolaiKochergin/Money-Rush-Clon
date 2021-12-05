@@ -11,7 +11,8 @@
                     "id": "05cfe755-0c1f-4220-bd28-42f838f3516c",
                     "expectedControlType": "Integer",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -38,7 +39,8 @@
                     "id": "c00e8f03-e66c-48e5-b93a-ab390b6a6cdd",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Click",
@@ -46,7 +48,8 @@
                     "id": "41c941ad-d771-4557-8b16-572ccbdb6df6",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Point",
@@ -54,7 +57,8 @@
                     "id": "e9975757-aa0d-43ae-8c0b-198287eeb7b6",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -88,6 +92,28 @@
                     "processors": "",
                     "groups": "Mouse",
                     "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3075118d-ec07-46e7-8474-ac9f68572732",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "StartGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b0c7c31-b416-4ab0-aa84-e48f4ac33878",
+                    "path": "<Touchscreen>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TouchScreen",
+                    "action": "StartGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
