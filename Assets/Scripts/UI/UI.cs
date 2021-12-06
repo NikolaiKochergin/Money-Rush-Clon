@@ -3,12 +3,12 @@ using UnityEngine;
 public class UI : MonoBehaviour
 {
     [SerializeField] private MainMenu _mainMenu;
-    [SerializeField] private GameMenu _gameMenu;
+    [SerializeField] private PlayMenu _playMenu;
     [SerializeField] private GameLossMenu _gameLossMenu;
     [SerializeField] private GameFinishedMenu _gameFinishedMenu;
 
     public MainMenu MainMenu => _mainMenu;
-    public GameMenu GameMenu => _gameMenu;
+    public PlayMenu PlayMenu => _playMenu;
     public GameLossMenu GameLossMenu => _gameLossMenu;
     public GameFinishedMenu GameFinishedMenu => _gameFinishedMenu;
 }

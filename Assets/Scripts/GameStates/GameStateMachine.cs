@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStatesSwitcher : MonoBehaviour
+public class GameStateMachine : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private UI _uI;
@@ -10,8 +10,6 @@ public class GameStatesSwitcher : MonoBehaviour
     private PlayerInput _input;
     private Dictionary<Type, IGameState> _statesMap;
     private IGameState _currentState;
-
-    public PlayerInput PlayerInput => _input;
 
     private void Awake()
     {
@@ -24,6 +22,9 @@ public class GameStatesSwitcher : MonoBehaviour
 
     private void OnEnable()
     {
+        _input.UI.StartGame.performed += ctx => SetPlayState();
+        _input.UI.RestartGame.performed += ctx => SetStartState();
+
         _player.GameLoss += SetGameLossState;
         _player.GameFinished += SetFinishedState;
     }
@@ -62,10 +63,10 @@ public class GameStatesSwitcher : MonoBehaviour
     {
         _statesMap = new Dictionary<Type, IGameState>();
 
-        _statesMap[typeof(StartState)] = new StartState(_player, _uI, this);
-        _statesMap[typeof(PlayState)] = new PlayState(_player, _uI, this);
-        _statesMap[typeof(FinishedState)] = new FinishedState(_uI, this);
-        _statesMap[typeof(GameLossState)] = new GameLossState(_uI, this);
+        _statesMap[typeof(StartState)] = new StartState(_player, _uI, _input);
+        _statesMap[typeof(PlayState)] = new PlayState(_player, _uI, _input);
+        _statesMap[typeof(FinishedState)] = new FinishedState(_uI, _input);
+        _statesMap[typeof(GameLossState)] = new GameLossState(_uI, _input);
     }
 
     private void SetState(IGameState newState)

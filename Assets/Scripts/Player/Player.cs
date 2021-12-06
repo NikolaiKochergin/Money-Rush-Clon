@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _startPosition = transform.position;
-        _mover.enabled = false;
+        SetStartState();
     }
 
     public void ChangeCash(Modifier.OperationType operationType, int value)
@@ -66,10 +66,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void ResetPlayer()
+    public void SetStartState()
     {
         Cash = _startCash;
         transform.position = new Vector3(0, 0.5f, 0.5f);
+        _mover.enabled = false;
+        //transform.position = _startPosition;
     }
 
     public void OnGameFinished()

@@ -1,25 +1,23 @@
 public class FinishedState : IGameState
 {
     private UI _uI;
-    private GameStatesSwitcher _switcher;
+    private PlayerInput _input;
 
-    public FinishedState(UI uI, GameStatesSwitcher switcher)
+    public FinishedState(UI uI, PlayerInput input)
     {
         _uI = uI;
-        _switcher = switcher;
+        _input = input;
     }
 
     public void Enter()
     {
         _uI.GameFinishedMenu.gameObject.SetActive(true);
-        _switcher.PlayerInput.UI.Enable();
-        _switcher.PlayerInput.UI.StartGame.performed += ctx => _switcher.SetStartState();
+        _input.UI.RestartGame.Enable();
     }
 
     public void Exit()
     {
         _uI.GameFinishedMenu.gameObject.SetActive(false);
-        _switcher.PlayerInput.UI.Disable();
-        _switcher.PlayerInput.UI.StartGame.performed -= ctx => _switcher.SetStartState();
+        _input.UI.RestartGame.Disable();
     }
 }

@@ -65,6 +65,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""RestartGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""b647c37f-3b9a-4339-ab10-d8192ae42572"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Click"",
                     ""type"": ""PassThrough"",
                     ""id"": ""41c941ad-d771-4557-8b16-572ccbdb6df6"",
@@ -138,6 +147,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""StartGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e46f0fe8-ed2e-42d0-90ab-2ad93191b79f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse"",
+                    ""action"": ""RestartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a417c1be-f62b-4b5d-babf-a1786507d74e"",
+                    ""path"": ""<Touchscreen>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""TouchScreen"",
+                    ""action"": ""RestartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -173,6 +204,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_StartGame = m_UI.FindAction("StartGame", throwIfNotFound: true);
+        m_UI_RestartGame = m_UI.FindAction("RestartGame", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
     }
@@ -268,6 +300,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_StartGame;
+    private readonly InputAction m_UI_RestartGame;
     private readonly InputAction m_UI_Click;
     private readonly InputAction m_UI_Point;
     public struct UIActions
@@ -275,6 +308,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         private @PlayerInput m_Wrapper;
         public UIActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @StartGame => m_Wrapper.m_UI_StartGame;
+        public InputAction @RestartGame => m_Wrapper.m_UI_RestartGame;
         public InputAction @Click => m_Wrapper.m_UI_Click;
         public InputAction @Point => m_Wrapper.m_UI_Point;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
@@ -289,6 +323,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @StartGame.started -= m_Wrapper.m_UIActionsCallbackInterface.OnStartGame;
                 @StartGame.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnStartGame;
                 @StartGame.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnStartGame;
+                @RestartGame.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRestartGame;
+                @RestartGame.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRestartGame;
+                @RestartGame.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRestartGame;
                 @Click.started -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
@@ -302,6 +339,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @StartGame.started += instance.OnStartGame;
                 @StartGame.performed += instance.OnStartGame;
                 @StartGame.canceled += instance.OnStartGame;
+                @RestartGame.started += instance.OnRestartGame;
+                @RestartGame.performed += instance.OnRestartGame;
+                @RestartGame.canceled += instance.OnRestartGame;
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
@@ -337,6 +377,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnStartGame(InputAction.CallbackContext context);
+        void OnRestartGame(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
     }

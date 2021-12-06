@@ -35,5 +35,6 @@ public class Mover : MonoBehaviour
     public void Initialization(PlayerInput input)
     {
         _input = input;
+        _input.Player.MoveX.performed += ctx => OnMoveX();
     }
 }

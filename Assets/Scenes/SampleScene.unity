@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 606708570}
   - component: {fileID: 606708569}
   m_Layer: 0
-  m_Name: GameMenu
+  m_Name: PlayMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMenu: {fileID: 1102709093}
-  _gameMenu: {fileID: 606708569}
+  _playMenu: {fileID: 606708569}
   _gameLossMenu: {fileID: 1273695754}
   _gameFinishedMenu: {fileID: 1818138535}
 --- !u!1 &1273695753
