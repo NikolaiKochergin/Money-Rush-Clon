@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44932604, g: 0.49939883, b: 0.5757055, a: 1}
+  m_IndirectSpecularColor: {r: 0.44932562, g: 0.49939805, b: 0.5757046, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1045,6 +1045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startCash: 200
   _mover: {fileID: 1849799974}
+  _aheadMovementRotation: {fileID: 2146342473}
   _movementDamage: {fileID: 1849799977}
 --- !u!114 &1849799976
 MonoBehaviour:
@@ -1097,13 +1098,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933609555}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.33, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1849799973}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!96 &1933609557
 TrailRenderer:
   serializedVersion: 2
@@ -1195,7 +1196,7 @@ TrailRenderer:
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
-    alignment: 0
+    alignment: 1
     textureMode: 3
     shadowBias: 0.5
     generateLightingData: 0
@@ -1286,6 +1287,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2146342470}
+  - component: {fileID: 2146342471}
+  - component: {fileID: 2146342472}
+  - component: {fileID: 2146342473}
   m_Layer: 0
   m_Name: ViewModel
   m_TagString: Untagged
@@ -1308,3 +1312,47 @@ Transform:
   m_Father: {fileID: 1849799973}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2146342471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146342469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6907ef22eae16448b275bee8cddd4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1849799975}
+  _collider: {fileID: 615944410}
+  _cashView: {fileID: 1716717770}
+  _cashViewOffsetY: 1
+--- !u!114 &2146342472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146342469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ac0d9fa8c4e6743be58da377c5aaa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1849799975}
+  _minScale: 0.1
+  _maxScale: 2
+--- !u!114 &2146342473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146342469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f04d6e3d139d41499024ee039f29330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1849799975}

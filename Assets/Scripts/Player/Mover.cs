@@ -10,6 +10,8 @@ public class Mover : MonoBehaviour
     private PlayerInput _input;
     private float _screenTouchDeltaX;
 
+    public float Speed => _speed;
+
     private void OnEnable()
     {
         _rigidbody.velocity = Vector3.forward * _speed;

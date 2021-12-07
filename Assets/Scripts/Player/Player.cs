@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [Space]
     [Header("Player Components")]
     [SerializeField] private Mover _mover;
+    [SerializeField] private AheadMovementRotation _aheadMovementRotation;
     [SerializeField] private MovementDamage _movementDamage;
 
     private float _cash;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     public event UnityAction GameLoss;
 
     public Mover Mover => _mover;
+    public AheadMovementRotation AheadMovementRotation => _aheadMovementRotation;
     public MovementDamage MovementDamage => _movementDamage;
 
     public float Cash
@@ -71,6 +73,7 @@ public class Player : MonoBehaviour
         Cash = _startCash;
         transform.position = Vector3.zero;
         _mover.enabled = false;
+        _aheadMovementRotation.enabled = false;
         _movementDamage.enabled = false;
     }
 

@@ -14,6 +14,7 @@ public class PlayState : IGameState
     public void Enter()
     {
         _player.Mover.enabled = true;
+        _player.AheadMovementRotation.enabled = true;
         _player.MovementDamage.enabled = true;
         _uI.PlayMenu.gameObject.SetActive(true);
         _input.Player.Enable();
@@ -22,6 +23,7 @@ public class PlayState : IGameState
     public void Exit()
     {
         _player.Mover.enabled = false;
+        _player.AheadMovementRotation.enabled = false;
         _player.MovementDamage.enabled = false;
         _uI.PlayMenu.gameObject.SetActive(false);
         _input.Player.Disable();
