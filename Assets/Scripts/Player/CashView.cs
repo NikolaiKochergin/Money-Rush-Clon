@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System.Globalization;
+using System.Threading;
 
 public class CashView : MonoBehaviour
 {
@@ -16,8 +18,9 @@ public class CashView : MonoBehaviour
         _player.CashChanged -= OnCashChanged;
     }
 
-    private void OnCashChanged(int value)
+    private void OnCashChanged(float value)
     {
-        _text.text = value.ToString();
+        Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+        _text.text = string.Format("{0:C2}", value);
     }
 }

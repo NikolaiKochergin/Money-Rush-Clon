@@ -5,7 +5,7 @@ public class Mover : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] [Min(0)] private float _speed;
     [SerializeField] [Min(0)] private float _roadWidth;
-    [SerializeField] [Range(0, 0.01f)] private float _sensetivity;
+    [SerializeField] [Range(0, 0.1f)] private float _sensetivity;
 
     private PlayerInput _input;
     private float _screenTouchDeltaX;
@@ -28,8 +28,9 @@ public class Mover : MonoBehaviour
     public void OnMoveX()
     {
         float targetPositionX = Mathf.Clamp(transform.position.x + (_screenTouchDeltaX * _sensetivity), -_roadWidth / 2, _roadWidth / 2);
+        float positionX = Mathf.MoveTowards(transform.position.x, targetPositionX, _speed * Time.deltaTime);
 
-        transform.position = new Vector3(targetPositionX, transform.position.y, transform.position.z);
+        transform.position = new Vector3(positionX, transform.position.y, transform.position.z);
     }
 
     public void Initialization(PlayerInput input)

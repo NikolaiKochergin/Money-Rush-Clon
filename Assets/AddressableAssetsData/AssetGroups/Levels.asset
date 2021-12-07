@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Levels
+  m_EditorClassIdentifier: 
+  m_GroupName: Levels
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 83c553c3e6edd3c4ca6d323098e0d1a4
+  m_SerializeEntries:
+  - m_GUID: 7fd0d4ce01aa23945bc4a345d6e28df9
+    m_Address: LevelObjects
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 8d8aced3b70d2b643ba345819905a6d7, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ff97a724d43db7140be00a782eadbfaf, type: 2}
+    - {fileID: 11400000, guid: a6d7da84027c4ad4e84fc4209dc1b9c9, type: 2}

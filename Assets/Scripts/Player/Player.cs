@@ -4,21 +4,23 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [Header("Player Stats")]
-    [SerializeField] [Min(1)] private int _startCash;
+    [SerializeField] [Min(0.01f)] private float _startCash;
     [Space]
     [Header("Player Components")]
     [SerializeField] private Mover _mover;
+    [SerializeField] private MovementDamage _movementDamage;
 
-    private int _cash;
+    private float _cash;
     private Vector3 _startPosition;
 
-    public event UnityAction<int> CashChanged;
+    public event UnityAction<float> CashChanged;
     public event UnityAction GameFinished;
     public event UnityAction GameLoss;
 
     public Mover Mover => _mover;
+    public MovementDamage MovementDamage => _movementDamage;
 
-    public int Cash
+    public float Cash
     {
         get => _cash;
         private set
@@ -30,11 +32,11 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _startPosition = transform.position;
+        _startPosition = transform.position;  // Разобраться почему тут transform.positin = 0
         SetStartState();
     }
 
-    public void ChangeCash(Modifier.OperationType operationType, int value)
+    public void ChangeCash(Modifier.OperationType operationType, float value)
     {
         switch (operationType)
         {
@@ -71,6 +73,7 @@ public class Player : MonoBehaviour
         Cash = _startCash;
         transform.position = new Vector3(0, 0.5f, 0.5f);
         _mover.enabled = false;
+        _movementDamage.enabled = false;
         //transform.position = _startPosition;
     }
 

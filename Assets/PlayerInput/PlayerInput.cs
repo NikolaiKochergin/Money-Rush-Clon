@@ -48,6 +48,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""MoveX"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f36cf326-01c6-4335-a335-a403a7d6cc8d"",
+                    ""path"": ""<Touchscreen>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""TouchScreen"",
+                    ""action"": ""MoveX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },

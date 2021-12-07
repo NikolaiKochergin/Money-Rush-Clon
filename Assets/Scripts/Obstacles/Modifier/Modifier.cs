@@ -11,7 +11,7 @@ public class Modifier : MonoBehaviour
     [SerializeField] private Material _materialBlue;
     [SerializeField] private Material _materialRed;
     [SerializeField] private OperationType _type;
-    [SerializeField] [Min(1)] private int _value;
+    [SerializeField] [Min(1)] private float _value;
 
     public enum OperationType
     {
@@ -24,7 +24,7 @@ public class Modifier : MonoBehaviour
 
     public Collider Collider => _collider;
     public OperationType Type => _type;
-    public int Value => _value;
+    public float Value => _value;
 
     private void Awake()
     {
@@ -41,11 +41,11 @@ public class Modifier : MonoBehaviour
         switch (_type)
         {
             case OperationType.Add:
-                _text.text = $"+{_value}";
+                _text.text = $"+${_value}";
                 _meshRenderer.material = _materialBlue;
                 break;
             case OperationType.Subtract:
-                _text.text = $"-{_value}";
+                _text.text = $"-${_value}";
                 _meshRenderer.material = _materialRed;
                 break;
             case OperationType.Multiply:
@@ -56,6 +56,23 @@ public class Modifier : MonoBehaviour
                 _text.text = $"÷{_value}";
                 _meshRenderer.material = _materialRed;
                 break;
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (_type == Modifier.OperationType.Multiply || _type == Modifier.OperationType.Divide)
+        {
+            _value = Mathf.Round(_value);
+            if (_value <= 0)
+                _value = 1;
+        }
+
+        if (_type == Modifier.OperationType.Add || _type == Modifier.OperationType.Subtract)
+        {
+            _value = ((int)(_value * 100)) / 100f;
+            if (_value <= 0)
+                _value = 1;
         }
     }
 }

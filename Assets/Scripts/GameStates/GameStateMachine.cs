@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameStateMachine : MonoBehaviour
 {
+    [SerializeField] private LevelLoader _loader;
     [SerializeField] private Player _player;
     [SerializeField] private UI _uI;
 
@@ -63,7 +64,7 @@ public class GameStateMachine : MonoBehaviour
     {
         _statesMap = new Dictionary<Type, IGameState>();
 
-        _statesMap[typeof(StartState)] = new StartState(_player, _uI, _input);
+        _statesMap[typeof(StartState)] = new StartState(_loader, _player, _uI, _input);
         _statesMap[typeof(PlayState)] = new PlayState(_player, _uI, _input);
         _statesMap[typeof(FinishedState)] = new FinishedState(_uI, _input);
         _statesMap[typeof(GameLossState)] = new GameLossState(_uI, _input);
