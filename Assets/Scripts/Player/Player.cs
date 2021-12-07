@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     [SerializeField] private MovementDamage _movementDamage;
 
     private float _cash;
-    private Vector3 _startPosition;
 
     public event UnityAction<float> CashChanged;
     public event UnityAction GameFinished;
@@ -32,7 +31,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _startPosition = transform.position;  // Разобраться почему тут transform.positin = 0
         SetStartState();
     }
 
@@ -71,10 +69,9 @@ public class Player : MonoBehaviour
     public void SetStartState()
     {
         Cash = _startCash;
-        transform.position = new Vector3(0, 0.5f, 0.5f);
+        transform.position = Vector3.zero;
         _mover.enabled = false;
         _movementDamage.enabled = false;
-        //transform.position = _startPosition;
     }
 
     public void OnGameFinished()

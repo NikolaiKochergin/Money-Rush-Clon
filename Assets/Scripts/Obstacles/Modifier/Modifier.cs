@@ -32,7 +32,7 @@ public class Modifier : MonoBehaviour
         {
             var settings = Resources.LoadAll<ModifierSettings>(RESOURCES_PATH);
             if (settings == null)
-                throw new System.Exception("Gun count changers resources didn't load.");
+                throw new System.Exception("Modifiers resources didn't load.");
             int index = Random.Range(0, settings.Length);
             _type = settings[index].Type;
             _value = settings[index].Value;
