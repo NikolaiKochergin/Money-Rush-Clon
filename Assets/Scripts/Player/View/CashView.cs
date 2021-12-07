@@ -8,19 +8,24 @@ public class CashView : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private TMP_Text _text;
 
+    private void Awake()
+    {
+        Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+        OnValueChanged(_player.Cash.Value);
+    }
+
     private void OnEnable()
     {
-        _player.CashChanged += OnCashChanged;
+        _player.Cash.ValueChanged += OnValueChanged;
     }
 
     private void OnDisable()
     {
-        _player.CashChanged -= OnCashChanged;
+        _player.Cash.ValueChanged -= OnValueChanged;
     }
 
-    private void OnCashChanged(float value)
+    private void OnValueChanged(float value)
     {
-        Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
         _text.text = string.Format("{0:C2}", value);
     }
 }

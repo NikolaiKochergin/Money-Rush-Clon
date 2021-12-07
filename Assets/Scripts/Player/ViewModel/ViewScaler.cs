@@ -2,28 +2,30 @@ using UnityEngine;
 
 public class ViewScaler : MonoBehaviour
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private float _minScale;
-    [SerializeField] private float _maxScale;
+    [SerializeField] [Min(0)] private float _minScale;
+    [SerializeField] [Min(0)] private float _maxScale;
 
+    private ViewModel _viewModel;
     private float _startPlayerCash;
 
     private void Awake()
     {
-        _startPlayerCash = 200f;
+        _viewModel = GetComponent<ViewModel>();
+        _startPlayerCash = _viewModel.Player.StartCash;
+        OnValueChanged(_viewModel.Player.Cash.Value);
     }
 
     private void OnEnable()
     {
-        _player.CashChanged += OnCashChanged;
+        _viewModel.Player.Cash.ValueChanged += OnValueChanged;
     }
 
     private void OnDisable()
     {
-        _player.CashChanged -= OnCashChanged;
+        _viewModel.Player.Cash.ValueChanged -= OnValueChanged;
     }
 
-    private void OnCashChanged(float value)
+    private void OnValueChanged(float value)
     {
         float localScale = Mathf.Clamp(value / _startPlayerCash, _minScale, _maxScale);
 

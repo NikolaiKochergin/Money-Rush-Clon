@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class StartState : IGameState
 {
     private LevelLoader _loader;
@@ -17,7 +19,10 @@ public class StartState : IGameState
     {
         _loader.Load();
         _loader.LevelLoaded += OnLevelLoaded;
-        _player.SetStartState();
+        _player.Cash.Restart();
+        _player.Mover.enabled = false;
+        _player.transform.position = Vector3.zero;
+        _player.MovementDamage.enabled = false;
         _uI.MainMenu.gameObject.SetActive(true);
     }
 

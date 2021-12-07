@@ -26,14 +26,14 @@ public class GameStateMachine : MonoBehaviour
         _input.UI.StartGame.performed += ctx => SetPlayState();
         _input.UI.RestartGame.performed += ctx => SetStartState();
 
-        _player.GameLoss += SetGameLossState;
-        _player.GameFinished += SetFinishedState;
+        _player.Cash.GameLoss += SetGameLossState;
+        _player.CollisionHandler.GameFinished += SetFinishedState;
     }
 
     private void OnDisable()
     {
-        _player.GameLoss -= SetGameLossState;
-        _player.GameFinished -= SetFinishedState;
+        _player.Cash.GameLoss -= SetGameLossState;
+        _player.CollisionHandler.GameFinished -= SetFinishedState;
     }
 
     public void SetStartState()
