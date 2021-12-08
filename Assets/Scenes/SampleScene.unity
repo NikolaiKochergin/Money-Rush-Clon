@@ -1356,7 +1356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minScale: 0
-  _maxScale: 2
+  _maxScale: 1.5
 --- !u!114 &2146342473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1383,3 +1383,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1849799975}
   _aheadMovementRotation: {fileID: 2146342473}
+  _trailRenderer: {fileID: 1933609557}

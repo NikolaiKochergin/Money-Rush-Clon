@@ -4,6 +4,7 @@ public class ViewModel : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private AheadMovementRotation _aheadMovementRotation;
+    [SerializeField] private TrailRenderer _trailRenderer;
 
     public Player Player => _player;
 
@@ -15,10 +16,12 @@ public class ViewModel : MonoBehaviour
     private void OnEnable()
     {
         _aheadMovementRotation.enabled = true;
+        _trailRenderer.enabled = true;
     }
 
     private void OnDisable()
     {
         _aheadMovementRotation.enabled = false;
+        _trailRenderer.enabled = false;
     }
 }
