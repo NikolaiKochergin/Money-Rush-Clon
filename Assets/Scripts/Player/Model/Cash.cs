@@ -4,7 +4,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Player))]
 public class Cash : MonoBehaviour
 {
-    private Player _player;
+    [SerializeField] private Player _player;
     private float _value;
 
     public event UnityAction<float> ValueChanged;
@@ -18,11 +18,6 @@ public class Cash : MonoBehaviour
             _value = value;
             ValueChanged?.Invoke(value);
         }
-    }
-
-    private void Awake()
-    {
-        _player = GetComponent<Player>();
     }
 
     public void Restart()
