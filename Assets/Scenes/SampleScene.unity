@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44932562, g: 0.49939805, b: 0.5757046, a: 1}
+  m_IndirectSpecularColor: {r: 0.44932604, g: 0.49939883, b: 0.5757055, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570061287}
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 8.44, z: -8.29}
+  m_LocalPosition: {x: 0, y: 9.38, z: -10.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 705507995}
@@ -336,7 +336,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.93333334, g: 0.8784314, b: 0.7254902, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1849799975}
   _roadWidth: 3
-  _sensetivity: 100
+  _sensetivity: 0.1
   _turnSpeed: 10
 --- !u!114 &1849799975
 MonoBehaviour:
@@ -1044,8 +1044,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4661c2a40be6fa54585429817da1c3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startCash: 200
-  _speed: 6
+  _startCash: 100
+  _speed: 8
   _cash: {fileID: 1849799978}
   _collisionHandler: {fileID: 1849799976}
   _mover: {fileID: 1849799974}
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cashView: {fileID: 1716717770}
-  _cashViewOffsetY: 1
+  _cashViewOffsetY: 0.5
 --- !u!114 &2146342472
 MonoBehaviour:
   m_ObjectHideFlags: 0

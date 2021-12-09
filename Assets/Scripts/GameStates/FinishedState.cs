@@ -14,13 +14,13 @@ public class FinishedState : IGameState
     public void Enter()
     {
         UnityEngine.Time.timeScale = 0;
+        _player.ViewModel.TrailRenderer.emitting = false;
         _uI.GameFinishedMenu.gameObject.SetActive(true);
         _input.UI.RestartGame.Enable();
     }
 
     public void Exit()
     {
-        //_player.ViewModel.enabled = false;
         _uI.GameFinishedMenu.gameObject.SetActive(false);
         _input.UI.RestartGame.Disable();
     }

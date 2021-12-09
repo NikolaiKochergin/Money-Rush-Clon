@@ -7,6 +7,7 @@ public class ViewModel : MonoBehaviour
     [SerializeField] private TrailRenderer _trailRenderer;
 
     public Player Player => _player;
+    public TrailRenderer TrailRenderer => _trailRenderer;
 
     private void Awake()
     {
@@ -16,12 +17,10 @@ public class ViewModel : MonoBehaviour
     private void OnEnable()
     {
         _aheadMovementRotation.enabled = true;
-        _trailRenderer.enabled = true;
     }
 
     private void OnDisable()
     {
         _aheadMovementRotation.enabled = false;
-        _trailRenderer.enabled = false;
     }
 }

@@ -10,10 +10,10 @@ public class AheadMovementRotation : MonoBehaviour
         _player = GetComponent<ViewModel>().Player;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        float rotatioinX = _player.Mover.Speed / (Mathf.PI * transform.localScale.y);
+        float rotatioinX = 2 * Mathf.Rad2Deg * _player.Mover.Speed / transform.localScale.y;
 
-        transform.Rotate(Vector3.right, rotatioinX);
+        transform.Rotate(Vector3.right, transform.rotation.x + rotatioinX * Time.fixedDeltaTime);
     }
 }

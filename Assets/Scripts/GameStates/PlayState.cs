@@ -16,6 +16,7 @@ public class PlayState : IGameState
         _player.Mover.enabled = true;
         _player.ViewModel.enabled = true;
         _player.MovementDamage.enabled = true;
+        _player.ViewModel.TrailRenderer.emitting = true;
         _uI.PlayMenu.gameObject.SetActive(true);
         _input.Player.Enable();
     }

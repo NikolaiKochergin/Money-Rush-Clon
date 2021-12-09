@@ -5,7 +5,7 @@ public class Mover : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] [Min(0)] private float _roadWidth;
-    [SerializeField] [Range(0, 100)] private float _sensetivity;
+    [SerializeField] [Range(0, 1)] private float _sensetivity;
     [SerializeField] [Min(0)] private float _turnSpeed;
 
     private PlayerInput _input;
@@ -42,10 +42,10 @@ public class Mover : MonoBehaviour
     {
         _targetDirection.z = 1;
 
-        if (transform.position.x + _currentDirection.x * _speed >= _roadWidth / 2)
+        if (transform.position.x + _speed/(Mathf.PI * _turnSpeed) >= _roadWidth / 2)
             _targetDirection.x = Mathf.Clamp(_targetDirection.x, -1, 0);
 
-        if (transform.position.x + _currentDirection.x * _speed <= -_roadWidth / 2)
+        if (transform.position.x - _speed / (Mathf.PI * _turnSpeed) <= -_roadWidth / 2)
             _targetDirection.x = Mathf.Clamp(_targetDirection.x, 0, 1);
 
         _currentDirection = Vector3.Lerp(_currentDirection, _targetDirection, _turnSpeed * Time.fixedDeltaTime);
