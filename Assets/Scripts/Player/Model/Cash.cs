@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Player))]
 public class Cash : MonoBehaviour
 {
     [SerializeField] private Player _player;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 437880772975882514}
   - component: {fileID: 437880772975882511}
   - component: {fileID: 437880772975882512}
-  - component: {fileID: 437880772975882513}
+  - component: {fileID: 3797477262926016752}
   m_Layer: 0
   m_Name: Modifier
   m_TagString: Untagged
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &437880772975882513
-MeshCollider:
+--- !u!65 &3797477262926016752
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,10 +92,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.2204466e-16, z: 10.000002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &437880773317197713
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 437880773474747339}
   _meshRenderer: {fileID: 437880772975882512}
-  _collider: {fileID: 437880772975882513}
+  _collider: {fileID: 3797477262926016752}
   _materialBlue: {fileID: 2100000, guid: fcf70ddff0a12a84c86641425e84cb99, type: 2}
   _materialRed: {fileID: 2100000, guid: d9ed35658a80a854f8b7953cf536028b, type: 2}
   _type: 4

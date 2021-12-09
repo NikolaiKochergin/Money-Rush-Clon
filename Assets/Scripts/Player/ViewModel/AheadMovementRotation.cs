@@ -12,7 +12,7 @@ public class AheadMovementRotation : MonoBehaviour
 
     private void Update()
     {
-        float rotatioinX = _player.Speed / (2 * transform.localScale.y);
+        float rotatioinX = _player.Mover.Speed / (Mathf.PI * transform.localScale.y);
 
         transform.Rotate(Vector3.right, rotatioinX);
     }

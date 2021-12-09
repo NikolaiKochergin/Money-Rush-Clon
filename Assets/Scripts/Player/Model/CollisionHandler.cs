@@ -1,17 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Player))]
 public class CollisionHandler : MonoBehaviour
 {
-    private Player _player;
+    [SerializeField] private Player _player;
 
     public event UnityAction GameFinished;
-
-    private void Awake()
-    {
-        _player = GetComponent<Player>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,7 +22,7 @@ public class CollisionHandler : MonoBehaviour
 
         if (bonus)
         {
-            bonus.gameObject.SetActive(false);
+            bonus.SetDisable();
 
             _player.Cash.ChangeCash(Modifier.OperationType.Add, bonus.Value);
         }

@@ -17,6 +17,7 @@ public class StartState : IGameState
 
     public void Enter()
     {
+        Time.timeScale = 1;
         _loader.Load();
         _loader.LevelLoaded += OnLevelLoaded;
         _player.Cash.Restart();

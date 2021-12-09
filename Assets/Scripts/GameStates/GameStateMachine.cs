@@ -66,8 +66,8 @@ public class GameStateMachine : MonoBehaviour
 
         _statesMap[typeof(StartState)] = new StartState(_loader, _player, _uI, _input);
         _statesMap[typeof(PlayState)] = new PlayState(_player, _uI, _input);
-        _statesMap[typeof(FinishedState)] = new FinishedState(_uI, _input);
-        _statesMap[typeof(GameLossState)] = new GameLossState(_uI, _input);
+        _statesMap[typeof(FinishedState)] = new FinishedState(_player, _uI, _input);
+        _statesMap[typeof(GameLossState)] = new GameLossState(_player, _uI, _input);
     }
 
     private void SetState(IGameState newState)
