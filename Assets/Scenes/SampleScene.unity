@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44932604, g: 0.49939883, b: 0.5757055, a: 1}
+  m_IndirectSpecularColor: {r: 0.44932562, g: 0.49939805, b: 0.5757046, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1029,9 +1029,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1849799975}
-  _roadWidth: 3
-  _sensetivity: 0.1
-  _turnSpeed: 10
+  _roadWidth: 4
+  _sensetivity: 32.6
+  _turnSpeed: 15
 --- !u!114 &1849799975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,7 +1063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf1be816b7d08049820c129d4d78a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1849799975}
 --- !u!114 &1849799977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,7 +1075,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57f95351d7aaa347854173025761dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1849799975}
   _damagePerDistance: 0.1
   _distance: 0.1
 --- !u!114 &1849799978
@@ -1215,7 +1213,7 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 1
-    textureMode: 3
+    textureMode: 2
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.2
@@ -1324,7 +1322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146342469}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 615944409}
@@ -1385,4 +1383,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1849799975}
   _aheadMovementRotation: {fileID: 2146342473}
+  _viewPosition: {fileID: 2146342471}
   _trailRenderer: {fileID: 1933609557}

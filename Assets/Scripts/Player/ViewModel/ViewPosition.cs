@@ -11,12 +11,12 @@ public class ViewPosition : MonoBehaviour
     private void Awake()
     {
         _player = GetComponent<ViewModel>().Player;
-        OnValueChanged(_player.Cash.Value);
     }
 
     private void OnEnable()
     {
         _player.Cash.ValueChanged += OnValueChanged;
+        OnValueChanged(_player.Cash.Value);
     }
 
     private void OnDisable()

@@ -20,9 +20,9 @@ public class StartState : IGameState
         Time.timeScale = 1;
         _loader.Load();
         _loader.LevelLoaded += OnLevelLoaded;
+        _player.transform.position = Vector3.zero;
         _player.Cash.Restart();
         _player.Mover.enabled = false;
-        _player.transform.position = Vector3.zero;
         _player.MovementDamage.enabled = false;
         _uI.MainMenu.gameObject.SetActive(true);
     }
