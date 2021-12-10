@@ -1,13 +1,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(ViewModel))]
-public class AheadMovementRotation : MonoBehaviour
+public class AheadRotation : MonoBehaviour
 {
-    private Player _player;
+    [SerializeField] private Player _player;
 
     private void Awake()
     {
-        _player = GetComponent<ViewModel>().Player;
+        enabled = false;
     }
 
     private void FixedUpdate()

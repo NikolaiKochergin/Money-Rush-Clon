@@ -2,28 +2,13 @@ using UnityEngine;
 
 public class ViewModel : MonoBehaviour
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private AheadMovementRotation _aheadMovementRotation;
-    [SerializeField] private ViewPosition _viewPosition;
+    [SerializeField] private AheadRotation _aheadRotation;
+    [SerializeField] private PositionGiver _positionGiver;
+    [SerializeField] private Scaler _scaler;
     [SerializeField] private TrailRenderer _trailRenderer;
 
-    public Player Player => _player;
+    public AheadRotation AheadRotation => _aheadRotation;
+    public PositionGiver PositionGiver => _positionGiver;
+    public Scaler Scaler => _scaler;
     public TrailRenderer TrailRenderer => _trailRenderer;
-
-    private void Awake()
-    {
-        enabled = false;
-    }
-
-    private void OnEnable()
-    {
-        _aheadMovementRotation.enabled = true;
-        _viewPosition.enabled = true;
-    }
-
-    private void OnDisable()
-    {
-        _aheadMovementRotation.enabled = false;
-        _viewPosition.enabled = false;
-    }
 }

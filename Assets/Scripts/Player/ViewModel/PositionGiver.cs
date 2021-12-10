@@ -1,27 +1,25 @@
 using UnityEngine;
 
 [RequireComponent(typeof(ViewModel))]
-public class ViewPosition : MonoBehaviour
+public class PositionGiver : MonoBehaviour
 {
+    [SerializeField]private Player _player;
     [SerializeField] private CashView _cashView;
     [SerializeField] private float _cashViewOffsetY;
-
-    private Player _player;
-
-    private void Awake()
-    {
-        _player = GetComponent<ViewModel>().Player;
-    }
 
     private void OnEnable()
     {
         _player.Cash.ValueChanged += OnValueChanged;
-        OnValueChanged(_player.Cash.Value);
     }
 
     private void OnDisable()
     {
         _player.Cash.ValueChanged -= OnValueChanged;
+    }
+
+    public void Restart()
+    {
+        OnValueChanged(_player.StartCash);
     }
 
     private void OnValueChanged(float value)

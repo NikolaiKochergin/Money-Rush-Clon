@@ -14,7 +14,7 @@ public class PlayState : IGameState
     public void Enter()
     {
         _player.Mover.enabled = true;
-        _player.ViewModel.enabled = true;
+        _player.ViewModel.AheadRotation.enabled = true;
         _player.MovementDamage.enabled = true;
         _player.ViewModel.TrailRenderer.emitting = true;
         _uI.PlayMenu.gameObject.SetActive(true);
@@ -24,7 +24,7 @@ public class PlayState : IGameState
     public void Exit()
     {
         _player.Mover.enabled = false;
-        _player.ViewModel.enabled = false;
+        _player.ViewModel.AheadRotation.enabled = false;
         _player.MovementDamage.enabled = false;
         _uI.PlayMenu.gameObject.SetActive(false);
         _input.Player.Disable();

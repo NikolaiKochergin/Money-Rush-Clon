@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44932562, g: 0.49939805, b: 0.5757046, a: 1}
+  m_IndirectSpecularColor: {r: 0.44932604, g: 0.49939883, b: 0.5757055, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1030,8 +1030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1849799975}
   _roadWidth: 4
-  _sensetivity: 32.6
-  _turnSpeed: 15
+  _turnSpeed: 10
+  _sensetivity: 1
 --- !u!114 &1849799975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1343,6 +1343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cashView: {fileID: 1716717770}
   _cashViewOffsetY: 0.5
+  _player: {fileID: 1849799975}
 --- !u!114 &2146342472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1357,6 +1358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minScale: 0
   _maxScale: 1.5
+  _player: {fileID: 1849799975}
 --- !u!114 &2146342473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1369,6 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f04d6e3d139d41499024ee039f29330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1849799975}
 --- !u!114 &2146342474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1381,7 +1384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab80ad7719ef74846adfd79831bd028d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1849799975}
-  _aheadMovementRotation: {fileID: 2146342473}
-  _viewPosition: {fileID: 2146342471}
+  _aheadRotation: {fileID: 2146342473}
+  _positionGiver: {fileID: 2146342471}
+  _scaler: {fileID: 2146342472}
   _trailRenderer: {fileID: 1933609557}

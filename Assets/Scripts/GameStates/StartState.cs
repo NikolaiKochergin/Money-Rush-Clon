@@ -22,6 +22,8 @@ public class StartState : IGameState
         _loader.LevelLoaded += OnLevelLoaded;
         _player.transform.position = Vector3.zero;
         _player.Cash.Restart();
+        _player.ViewModel.PositionGiver.Restart();
+        _player.ViewModel.Scaler.Restart();
         _player.Mover.enabled = false;
         _player.MovementDamage.enabled = false;
         _uI.MainMenu.gameObject.SetActive(true);
