@@ -3,8 +3,7 @@ using UnityEngine.Events;
 
 public class CollisionHandler : MonoBehaviour
 {
-    [SerializeField] private Player _player;
-
+    public event UnityAction<Modifier.OperationType, float> CashChanging;
     public event UnityAction GameFinished;
 
     private void OnTriggerEnter(Collider other)
@@ -16,15 +15,13 @@ public class CollisionHandler : MonoBehaviour
         if (modifier)
         {
             modifier.gameObject.SetActive(false);
-
-            _player.Cash.ChangeCash(modifier.Type, modifier.Value);
+            CashChanging?.Invoke(modifier.Type, modifier.Value);
         }
 
         if (bonus)
         {
             bonus.SetDisable();
-
-            _player.Cash.ChangeCash(Modifier.OperationType.Add, bonus.Value);
+            CashChanging?.Invoke(Modifier.OperationType.Add, bonus.Value);
         }
 
         if (finishTrigger)

@@ -1,13 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MovementDamage : MonoBehaviour
 {
-    [SerializeField] private Player _player;
     [SerializeField] [Min(0.01f)] private float _damagePerDistance;
     [SerializeField] [Min(0.01f)] private float _distance;
 
     private float _currentDistance;
     private float _lastChackPosition;
+
+    public event UnityAction<Modifier.OperationType, float> CashChanging;
 
     private void OnEnable()
     {
@@ -21,7 +23,7 @@ public class MovementDamage : MonoBehaviour
         if (_currentDistance >= _distance)
         {
             _lastChackPosition = transform.position.z;
-            _player.Cash.ChangeCash(Modifier.OperationType.Subtract, _damagePerDistance);
+            CashChanging?.Invoke(Modifier.OperationType.Subtract, _damagePerDistance);
         }
     }
 }

@@ -19,12 +19,24 @@ public class Cash : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        _player.CollisionHandler.CashChanging += OnCashChanging;
+        _player.MovementDamage.CashChanging += OnCashChanging;
+    }
+
+    private void OnDisable()
+    {
+        _player.CollisionHandler.CashChanging -= OnCashChanging;
+        _player.MovementDamage.CashChanging -= OnCashChanging;
+    }
+
     public void Restart()
     {
         Value = _player.StartCash;
     }
 
-    public void ChangeCash(Modifier.OperationType operationType, float value)
+    public void OnCashChanging(Modifier.OperationType operationType, float value)
     {
         switch (operationType)
         {
